@@ -192,7 +192,7 @@ def show_venue(venue_id):
 @app.route('/venues/create', methods=['GET'])
 def create_Venue_form():
   form = VenueForm()
-  return render_template('forms/new_Venue.html', form=form)
+  return render_template('forms/new_venue.html', form=form)
 
 @app.route('/venues/create', methods=['POST'])
 def create_Venue_submission():
@@ -235,8 +235,8 @@ def create_Venue_submission():
     # If successful, redirect to Venues page
     return redirect(url_for('venues'))
 
-@app.route('/Venues/<Venue_id>', methods=['DELETE'])
-def delete_Venue(Venue_id):
+@app.route('/venues/<venue_id>', methods=['DELETE'])
+def delete_Venue(venue_id):
   # TODO: Complete this endpoint for taking a Venue_id, and using
   # SQLAlchemy ORM to delete a record. Handle cases where the session commit could fail.
   try:
@@ -468,7 +468,7 @@ def create_artist_submission():
   # TODO: modify data to be the data object returned from db insertion
 
   # on successful db insert, flash success
-  flash('Artist ' + request.form['name'] + ' was successfully listed!')
+  # flash('Artist ' + request.form['name'] + ' was successfully listed!')
   # TODO: on unsuccessful db insert, flash an error instead.
   # e.g., flash('An error occurred. Artist ' + data.name + ' could not be listed.')
   # Get the form data
@@ -477,7 +477,6 @@ def create_artist_submission():
   state = request.form['state']
   phone = request.form['phone']
   genres = request.form.getlist('genres')
-  # website = request.form['website']
   facebook_link = request.form['facebook_link']
   seeking_Venue = True if 'seeking_Venue' in request.form else False
   seeking_description = request.form['seeking_description']
@@ -490,7 +489,6 @@ def create_artist_submission():
         state=state,
         phone=phone,
         genres=genres,
-        # website=website,
         facebook_link=facebook_link,
         seeking_Venue=seeking_Venue,
         seeking_description=seeking_description,
