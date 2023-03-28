@@ -478,7 +478,7 @@ def create_artist_submission():
   phone = request.form['phone']
   genres = request.form.getlist('genres')
   facebook_link = request.form['facebook_link']
-  seeking_Venue = True if 'seeking_Venue' in request.form else False
+  # seeking_Venue = True if 'seeking_Venue' in request.form else False
   seeking_description = request.form['seeking_description']
   image_link = request.form['image_link']
 
@@ -490,7 +490,7 @@ def create_artist_submission():
         phone=phone,
         genres=genres,
         facebook_link=facebook_link,
-        seeking_Venue=seeking_Venue,
+        # seeking_Venue=seeking_Venue,
         seeking_description=seeking_description,
         image_link=image_link
   )
